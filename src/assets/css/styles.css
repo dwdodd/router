@@ -1,0 +1,10 @@
+/* Importar animate.css */
+@import "animate.css/animate.min.css";
+
+
+/* Importar tus estilos personalizados */
+@import "./main.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

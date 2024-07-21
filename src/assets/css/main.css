@@ -1,0 +1,93 @@
+.popup-xl { width: 90%; text-align: center;}
+.popup-lg { width: 70%; text-align: center;}
+.popup-md { width: 40%; text-align: center;}
+.popup-sm { width: 25%; text-align: center;}
+.popup-xs { width: 15%; text-align: center;}
+
+.swal2-container,
+.swal2-backdrop-show,
+.swal2-noanimation {
+    background: rgba(0, 0, 0, .2) !important;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.pagination .page-link {
+    margin-top: -10px;
+    color: #a3a2a2; /* Cambia el color del texto de los enlaces */
+    background-color: white; /* Cambia el color de fondo de los enlaces */
+    border-color: #dee2e6; /* Cambia el color del borde de los enlaces */
+}
+.pagination .page-link:hover {
+    color: white; /* Cambia el color del texto de los enlaces al pasar el mouse */
+    background-color: #a3a2a2; /* Cambia el color de fondo de los enlaces al pasar el mouse */
+    border-color: #dee2e6; /* Cambia el color del borde de los enlaces al pasar el mouse */
+}
+.pagination .page-item.active .page-link {
+    background-color: #a3a2a2; /* Cambia el color de fondo del enlace activo */
+    color: white; /* Cambia el color del texto del enlace activo */
+    border-color: #dee2e6; /* Cambia el color del borde del enlace activo */
+}
+
+.sort-icon {
+    margin-left: 5px;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+.clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+}
+
+.signature-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#signature-pad {
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto;
+    cursor: crosshair;
+}
+
+/* extraSmall devices (landscape phones, 300px and up) */
+@media (min-width: 274px) { 
+    .btn-dashboard-style { width:15rem; height:140px; padding:30px; }
+    .tbl-profile-size-id { width:10%; }
+    .tbl-profile-size-profile { width:45%; }
+    .tbl-profile-size-action { width:45%; }
+}
+/* Small devices (landscape phones, 300px and up) */
+@media (min-width: 300px) { 
+    .btn-dashboard-style { width:15rem; height:140px; padding:30px; }
+    .tbl-profile-size-id { width:10%; }
+    .tbl-profile-size-profile { width:55%; }
+    .tbl-profile-size-action { width:35%; }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .btn-dashboard-style { width:18rem; height:140px; padding:30px; }
+    .tbl-profile-size-id { width:10%; }
+    .tbl-profile-size-profile { width:75%; }
+    .tbl-profile-size-action { width:15%; }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .btn-dashboard-style { width:12rem; height:140px; padding:30px; }
+    .tbl-profile-size-id { width:10%; }
+    .tbl-profile-size-profile { width:80%; }
+    .tbl-profile-size-action { width:10%; }
+}
