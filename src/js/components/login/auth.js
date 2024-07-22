@@ -52,7 +52,7 @@ const  auth = async () => {
         document.title = 'Panel de control';
         history.replaceState({ state }, state, '/' + state);
         document.getElementById('root').innerHTML = elements.dashboard();
-    }, 1000);
+    }, 500);
 }
 
 export default auth;
