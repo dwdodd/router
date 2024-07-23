@@ -3,6 +3,7 @@ import userPageLink from "../components/user/requests/userPageLink.js";
 import fechtService from "./fetchService.js";
 
 const paginatorPageLink = async (e, path) => {
+    let cols = '';
     let response = '';
     let page = e.target.dataset.page;
     let content = document.getElementById('content');
@@ -12,12 +13,21 @@ const paginatorPageLink = async (e, path) => {
     const method = 'GET';
     const data = await fechtService({}, resource, method);
 
-    content.innerHTML = `<tr><td class="text-center text-xl p-1" colspan="3">Cargando información, por favor espere...</td></tr>`;
+    switch (path) {
+        case 'users':
+            cols = 7; break;
+        case 'roles':
+        case 'profiles':
+        case 'permissions':
+             cols = 3; break;
+    }
+
+    content.innerHTML = `<tr><td class="text-center text-xl p-1" colspan="${cols}">Cargando información, por favor espere...</td></tr>`;
 
     if(data.status === 401){
         return content.innerHTML = `
         <tr>
-            <td class="text-center text-xl p-1" colspan="6">
+            <td class="text-center text-xl p-1" colspan="${cols}">
                 Token expirado debe
                 <u><a href="#" id="out" class="text-sky-500">iniciar sesión</a></u>
                 nuevamente
@@ -41,7 +51,7 @@ const paginatorPageLink = async (e, path) => {
         }, 300);
     }
     else{
-        content.innerHTML = `<tr><td class="text-center text-xl p-1" colspan="3">No hay información para mostrar</td></tr>`;
+        content.innerHTML = `<tr><td class="text-center text-xl p-1" colspan="${cols}">No hay información para mostrar</td></tr>`;
     }
 };
 
