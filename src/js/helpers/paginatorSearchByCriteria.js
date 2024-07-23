@@ -14,7 +14,7 @@ const paginatorSearchByCriteria = async (criteria, path) => {
 
     switch (path) {
         case 'users':
-            cols = 6; break;
+            cols = 7; break;
         case 'roles':
         case 'profiles':
         case 'permissions':
