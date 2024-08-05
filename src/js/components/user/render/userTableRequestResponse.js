@@ -5,7 +5,7 @@ const userTableRequestResponse = (el) => {
         <td class="text-center border">${el.surnames}</td>
         <td class="text-center border">${el.username}</td>
         <td class="text-center border">${el.email}</td>
-        <td class="text-center border">${el.profiles}</td>
+        <td class="text-center border">${!el.profiles?'Sin perfil asignado':el.profiles}</td>
         <td class="text-center border">
             <button
                 type="button"
