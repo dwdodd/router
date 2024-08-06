@@ -2,18 +2,18 @@ import customSwal from "../../../helpers/customSwal.js";
 import fechtService from "../../../helpers/fetchService.js";
 
 const addUser = async (validateEmail, inputValidation) => {
-    let names = document.getElementById('names');
-    let day = document.getElementById('day');
-    let month = document.getElementById('month');
-    let year = document.getElementById('year');
-    let gender = document.getElementById('gender');
-    let idcard = document.getElementById('idcard');
-    let bloodtype = document.getElementById('bloodtype');
-    let phone = document.getElementById('phone');
-    let phonetype = document.getElementById('phonetype');
-    let email = document.getElementById('email');
-    let username = document.getElementById('username');
-    let profile = document.getElementById('profile');
+    let names = MyElement('names');
+    let day = MyElement('day');
+    let month = MyElement('month');
+    let year = MyElement('year');
+    let gender = MyElement('gender');
+    let idcard = MyElement('idcard');
+    let bloodtype = MyElement('bloodtype');
+    let phone = MyElement('phone');
+    let phonetype = MyElement('phonetype');
+    let email = MyElement('email');
+    let username = MyElement('username');
+    let profile = MyElement('profile');
 
     let phoneInputs = document.getElementsByName('phone[]');
     let phoneValues = [];

@@ -5,8 +5,8 @@ import fechtService from "./fetchService.js";
 const paginatorSearchByCriteria = async (criteria, path) => {
     let cols = '';
     let response = '';
-    let content = document.getElementById('content');
-    let footer = document.getElementById('footer');
+    let content = MyElement('content');
+    let footer = MyElement('footer');
 
     const resource = `${path}?criteria=${criteria}`;
     const method = 'GET';

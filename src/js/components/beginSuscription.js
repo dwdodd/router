@@ -4,6 +4,7 @@ import paginatorSearchByCriteria from "../helpers/paginatorSearchByCriteria.js";
 import renderHTML from "../helpers/renderHTML.js";
 import { elements } from "../helpers/routesAndComponents.js";
 import auth from "./login/auth.js";
+import sendRecoverPassword from "./login/sendRecoverPassword.js";
 
 const beginSuscription = async (key, e) => {
     switch (key) {
@@ -13,6 +14,14 @@ const beginSuscription = async (key, e) => {
 
         case 'dashboard-rc':
             await renderHTML('dashboard', 'Dashboard', elements.dashboard());
+            break;
+
+        case 'recover-pwd-rc':
+            renderHTML('recover-password', 'Recuperar contraseña', elements['recover-password']());
+            break;
+
+        case 'send-recover':
+            await sendRecoverPassword()
             break;
 
         case 'users-rc':
@@ -40,7 +49,7 @@ const beginSuscription = async (key, e) => {
             break;
 
          case 'page-link-search-rc':
-            paginatorSearchByCriteria(document.getElementById('search').value, window.location.pathname.substring(1));
+            paginatorSearchByCriteria(MyElement('search').value, window.location.pathname.substring(1));
             break;
         
         case 'col-index-rc':
@@ -48,8 +57,8 @@ const beginSuscription = async (key, e) => {
             break;
 
         case 'clear-search-rc':
-            document.getElementById('search').value = '';
-            document.getElementById('search').focus();
+            MyElement('search').value = '';
+            MyElement('search').focus();
             break;
     }
 }

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('El DOM está completamente cargado y parseado');
 
     /* Contenedor para renderizar elementos al dom */
-    const root = document.getElementById('root');
+    const root = MyElement('root');
 
     /* Selecciona el pathname y el substring le quita el slash */
     const hashPath = window.location.pathname.substring(1);
@@ -24,8 +24,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     /* Validar la página actual y mantenerla visible */
-    if(!hashPath || !localeStorageItem('ui') || hashPath == 'login'){
-        return keepThisPage('login', hashPath, elements.login());
+    if(!hashPath || !localeStorageItem('ui')){
+        if(hashPath == 'login'){
+            return keepThisPage('login', hashPath, elements.login());
+        }
+        else{
+            return keepThisPage('Recuperar contraseña', hashPath, elements['recover-password']());
+        }
     }
 
     /* Verifica si la ruta existe */

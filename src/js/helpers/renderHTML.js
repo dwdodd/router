@@ -7,14 +7,21 @@ import verifyInputSearch from "./verifyInputSeach.js";
 
 const renderHTML = async (path, title, element) => {
     if(!localeStorageItem('ui')){
-        setTitle('login');
-        replaceHistoryState('login');
-        return root.innerHTML = elements.login();
+        if(path == 'login'){
+            setTitle('login');
+            replaceHistoryState('login');
+            return root.innerHTML = elements.login();
+        }
+        else{
+            setTitle('Recuperar contraseña');
+            replaceHistoryState('recover-password');
+            return root.innerHTML = elements['recover-password']();
+        }
     }
 
     replaceHistoryState(path);
 
-    if(path == 'login') return;
+    if(path == 'login' || path == 'recover-password') return;
 
     if (!(path in routes)) {
         setTitle('Not Found');

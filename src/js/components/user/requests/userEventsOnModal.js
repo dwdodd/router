@@ -3,7 +3,7 @@ import phoneMask from "../../../helpers/phoneMask.js";
 import getProfiles from "../../profile/requests/getProfiles.js";
 
 const getProfileForUser = async (tag, roleList, accordionCounter = '') => {
-    let inputSelect = document.getElementById(tag);
+    let inputSelect = MyElement(tag);
     inputSelect.innerHTML = `<option value="">Cargando información...</option>`;
 
     if (localStorage.getItem('profiles')) {
@@ -35,11 +35,11 @@ const getProfileForUser = async (tag, roleList, accordionCounter = '') => {
         // Obtener el texto del option seleccionado
         let selectedText = inputSelect.options[selectedIndex].text;
 
-        if (document.getElementById('btn-enable-select').style.display == 'none' && e.target.value !== '') {
-            document.getElementById('btn-enable-select').style.display = 'block';
+        if (MyElement('btn-enable-select').style.display == 'none' && e.target.value !== '') {
+            MyElement('btn-enable-select').style.display = 'block';
         };
 
-        if (!e.target.value) return document.getElementById(roleList).innerHTML = '';
+        if (!e.target.value) return MyElement(roleList).innerHTML = '';
 
         if (localStorage.getItem('profiles')) {
             let lsd = JSON.parse(localStorage.getItem('profiles'));
@@ -51,7 +51,7 @@ const getProfileForUser = async (tag, roleList, accordionCounter = '') => {
             inputSelect.disabled = true;
         }
 
-        document.getElementById(roleList).innerHTML = `
+        MyElement(roleList).innerHTML = `
         <div class="container mx-auto">
             <div class="border border-gray-300 rounded mb-2">
                 <div class="border border-gray-300 rounded mb-2">
@@ -65,7 +65,7 @@ const getProfileForUser = async (tag, roleList, accordionCounter = '') => {
             </div>
         </div>`;
 
-        document.getElementById('accordeon-selected-'+e.target.value).addEventListener('click', (e) => {
+        MyElement('accordeon-selected-'+e.target.value).addEventListener('click', (e) => {
             const accordionContent = e.target.nextElementSibling;
 
             e.target.classList.toggle('active');
@@ -78,10 +78,10 @@ const getProfileForUser = async (tag, roleList, accordionCounter = '') => {
         });
     });
 
-    document.getElementById('btn-enable-select').addEventListener('click', () => {
-        document.getElementById('btn-enable-select').style.display = 'none';
-        document.getElementById('role-list').innerHTML = '';
-        document.getElementById('others-profiles').innerHTML = '';
+    MyElement('btn-enable-select').addEventListener('click', () => {
+        MyElement('btn-enable-select').style.display = 'none';
+        MyElement('role-list').innerHTML = '';
+        MyElement('others-profiles').innerHTML = '';
         inputSelect.disabled = false;
 
         let po = JSON.parse(localStorage.getItem('profiles-temp'));
@@ -92,14 +92,14 @@ const getProfileForUser = async (tag, roleList, accordionCounter = '') => {
 
         op.forEach(el => options += `<option value="${el.id}">${el.profile}</option>`);
 
-        document.getElementById('profile').innerHTML = options;
+        MyElement('profile').innerHTML = options;
     });
 
     return;
 };
 
 const otherPhone = () => {
-    document.getElementById('other-phone').addEventListener('click', function (e) {
+    MyElement('other-phone').addEventListener('click', function (e) {
         // Obtener todos los nuevos teléfonos agregados
         let newPhones = document.querySelectorAll('.phones [name="phone[]"]');
         let newPhonesTypes = document.querySelectorAll('.phones [name="phonetype[]"]');
@@ -119,12 +119,12 @@ const otherPhone = () => {
 
         // Mostrar mensaje de error si no todos los campos están completos
         if (!valid) {
-            document.getElementById('error-message-phone-empty').style.display = 'block';
+            MyElement('error-message-phone-empty').style.display = 'block';
             e.preventDefault(); // Evitar que se agreguen nuevos campos si no están completos
             return;
         }
         else {
-            document.getElementById('error-message-phone-empty').style.display = 'none';
+            MyElement('error-message-phone-empty').style.display = 'none';
         }
 
         // Crear un nuevo elemento div para el teléfono
@@ -162,7 +162,7 @@ const otherPhone = () => {
         </div>`;
 
         // Agregar el nuevo teléfono al contenedor
-        document.getElementById('others-phones').prepend(newPhoneDiv);
+        MyElement('others-phones').prepend(newPhoneDiv);
 
         // Agregar evento de clic al botón de eliminar teléfono
         newPhoneDiv.querySelector('.remove-phone').addEventListener('click', function () {
@@ -175,7 +175,7 @@ const otherPhone = () => {
 
 const otherProfile = () => {
     let profileCounter = 0;
-    document.getElementById('other-profile').addEventListener('click', function (e) {
+    MyElement('other-profile').addEventListener('click', function (e) {
         profileCounter++;
         // Obtener todos los nuevos teléfonos agregados
         let newProfile = document.querySelectorAll('.profiles [name="profile[]"]');
@@ -192,12 +192,12 @@ const otherProfile = () => {
 
         // Mostrar mensaje de error si no todos los campos están completos
         if (!valid) {
-            document.getElementById('error-message-profile-empty').style.display = 'block';
+            MyElement('error-message-profile-empty').style.display = 'block';
             e.preventDefault(); // Evitar que se agreguen nuevos campos si no están completos
             return;
         }
         else {
-            document.getElementById('error-message-profile-empty').style.display = 'none';
+            MyElement('error-message-profile-empty').style.display = 'none';
         }
 
         // Crear un nuevo elemento div para el teléfono
@@ -226,7 +226,7 @@ const otherProfile = () => {
         </div>`;
 
         // Agregar el nuevo teléfono al contenedor
-        document.getElementById('others-profiles').prepend(newProfileDiv);
+        MyElement('others-profiles').prepend(newProfileDiv);
 
         // Agregar evento de clic al botón de eliminar teléfono
         newProfileDiv.querySelector('.remove-profile').addEventListener('click', function () {
@@ -245,7 +245,7 @@ const day = (tag) => {
         options += `<option value="${i}">${i}</option>`;
     }
 
-    document.getElementById(tag).innerHTML = options;
+    MyElement(tag).innerHTML = options;
 }
 
 const month = (tag) => {
@@ -258,7 +258,7 @@ const month = (tag) => {
         options += `<option value="${i}">${months[parseInt(i)]}</option>`;
     }
 
-    document.getElementById(tag).innerHTML = options;
+    MyElement(tag).innerHTML = options;
 }
 
 const year = (tag) => {
@@ -267,7 +267,7 @@ const year = (tag) => {
 
     for(let i = actualYear; i >= 1920; i--) options += `<option value="${i}">${i}</option>`;
 
-    document.getElementById(tag).innerHTML = options;
+    MyElement(tag).innerHTML = options;
 }
 
 const userEventsOnModal = async () => {

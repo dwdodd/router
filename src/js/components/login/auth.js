@@ -3,10 +3,11 @@ import { localeStorageRemove } from "../../helpers/getLocaleStorage.js";
 import { elements } from "../../helpers/routesAndComponents.js";
 
 const  auth = async () => {
-    let user = document.getElementById('user').value;
-    let pasw = document.getElementById('pasw').value;
 
-    document.getElementById('btn-login').innerHTML = `
+    let user = MyElement('user').value;
+    let pasw = MyElement('pasw').value;
+
+    MyElement('btn-login').innerHTML = `
     <div class="flex items-center space-x-1">
         <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -16,18 +17,18 @@ const  auth = async () => {
     </div>`;
 
     if(!user){
-        document.getElementById('btn-login').innerHTML = 'Acceder';
-        document.getElementById('user').focus();
-        document.getElementById('user-error-message').innerHTML = 'Ingresar usuario por favor';
-        setTimeout(() => document.getElementById('user-error-message').innerHTML = '', 3000);
+        MyElement('btn-login').innerHTML = 'Acceder';
+        MyElement('user').focus();
+        MyElement('user-error-message').innerHTML = 'Ingresar usuario por favor';
+        setTimeout(() => MyElement('user-error-message').innerHTML = '', 3000);
         return;
     };
 
     if(!pasw){
-        document.getElementById('btn-login').innerHTML = 'Acceder';
-        document.getElementById('pasw').focus();
-        document.getElementById('pasw-error-message').innerHTML = 'Ingresar contraseña por favor';
-        setTimeout(() => document.getElementById('pasw-error-message').innerHTML = '', 3000);
+        MyElement('btn-login').innerHTML = 'Acceder';
+        MyElement('pasw').focus();
+        MyElement('pasw-error-message').innerHTML = 'Ingresar contraseña por favor';
+        setTimeout(() => MyElement('pasw-error-message').innerHTML = '', 3000);
         return;
     };
 
@@ -36,22 +37,22 @@ const  auth = async () => {
     if(!userData.status){
         localeStorageRemove('ui');
         setTimeout(() => {
-            document.getElementById('login-error-message').innerHTML = userData.message;
-            document.getElementById('btn-login').innerHTML = 'Acceder';
+            MyElement('login-error-message').innerHTML = userData.message;
+            MyElement('btn-login').innerHTML = 'Acceder';
         },1500);
 
-        setTimeout(() => document.getElementById('login-error-message').innerHTML = '', 3500);
+        setTimeout(() => MyElement('login-error-message').innerHTML = '', 3500);
         return;
     }
 
     localStorage.setItem('ui', JSON.stringify(userData.result));
 
     setTimeout(async () => {
-        document.getElementById('btn-login').innerHTML = 'Acceder';
+        MyElement('btn-login').innerHTML = 'Acceder';
         let state = 'dashboard';
         document.title = 'Panel de control';
         history.replaceState({ state }, state, '/' + state);
-        document.getElementById('root').innerHTML = elements.dashboard();
+        MyElement('root').innerHTML = elements.dashboard();
     }, 500);
 }
 

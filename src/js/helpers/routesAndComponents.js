@@ -9,19 +9,21 @@ import addUser from "../components/user/forms/addUserForm.js";
 import editUser from "../components/user/forms/editUserForm.js";
 import addProfile from "../components/profile/forms/addProfileForm.js";
 import editProfile from "../components/profile/forms/editProfileForm.js";
+import recoverPassword from "../components/recoverPassword.js";
 
 const headerTitle = (title) => {
     let newTitle = '';
     switch (title) {
-        case 'dashboard':    newTitle = 'Dashboard'; break;
-        case 'users':        newTitle = 'Usuarios';         break;
-        case 'profiles':     newTitle = 'Perfiles';         break;
-        case 'roles':        newTitle = 'Roles';            break;
-        case 'permissions':  newTitle = 'Permisos';         break;
-        case 'add-user':     newTitle = 'Nuevo usuario';    break;
-        case 'edit-user':    newTitle = 'Editar usuario';   break;
-        case 'add-profile':  newTitle = 'Nuevo perfil';     break;
-        case 'edit-profile': newTitle = 'Editar perfil';    break;
+        case 'dashboard':        newTitle = 'Dashboard';            break;
+        case 'users':            newTitle = 'Usuarios';             break;
+        case 'profiles':         newTitle = 'Perfiles';             break;
+        case 'roles':            newTitle = 'Roles';                break;
+        case 'permissions':      newTitle = 'Permisos';             break;
+        case 'add-user':         newTitle = 'Nuevo usuario';        break;
+        case 'edit-user':        newTitle = 'Editar usuario';       break;
+        case 'add-profile':      newTitle = 'Nuevo perfil';         break;
+        case 'edit-profile':     newTitle = 'Editar perfil';        break;
+        case 'recover-password': newTitle = 'Recuperar contraseña'; break;
     }
     return !newTitle?title:newTitle;
 }
@@ -37,6 +39,7 @@ const routes = {
     'edit-user': 'edit-user',
     'add-profile': 'add-profile',
     'edit-profile': 'edit-profile',
+    'recover-password': 'recover-password',
 }
 
 const elements = {
@@ -51,6 +54,7 @@ const elements = {
     'edit-user': editUser,
     'add-profile': addProfile,
     'edit-profile': editProfile,
+    'recover-password': recoverPassword,
 };
 
 export {routes, elements, headerTitle};

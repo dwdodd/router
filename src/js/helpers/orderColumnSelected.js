@@ -6,7 +6,7 @@ const orderColumnSelected = async (columnIndex) => {
         sortState[columnIndex] = 1; // Orden ascendente inicialmente
     }
 
-    const table = document.getElementById("tbl-order");
+    const table = MyElement("tbl-order");
 
     // Verificar si la tabla existe
     if (!table) {

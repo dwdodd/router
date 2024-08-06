@@ -1,5 +1,5 @@
 const editProfile = async () => {
-    let profileValue = document.getElementById('profile_name').value;
+    let profileValue = MyElement('profile_name').value;
     // const result = await fechtService(data, 'add-user', 'POST');
 
     // if (!result.status) return customSwal(

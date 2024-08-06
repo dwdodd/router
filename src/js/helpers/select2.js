@@ -1,5 +1,5 @@
 const select2 = async (tagSelected) => {
-    document.getElementById(tagSelected).innerHTML = `
+    MyElement(tagSelected).innerHTML = `
     <div class="select2-container">
         <div id="select2-selected" class="select2-selected"></div>
         <div class="input-group flex-nowrap mb-2">
@@ -15,9 +15,9 @@ const select2 = async (tagSelected) => {
         </ul>
     </div>`;
 
-    const searchInput = document.getElementById('select2-search');
-    const optionsList = document.getElementById('select2-options');
-    const selectedContainer = document.getElementById('select2-selected');
+    const searchInput = MyElement('select2-search');
+    const optionsList = MyElement('select2-options');
+    const selectedContainer = MyElement('select2-selected');
     const options = optionsList.getElementsByTagName('li');
     let selectedValues = [];
 

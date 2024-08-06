@@ -6,7 +6,7 @@ const phoneMask = (tag) => {
             let input = event.target;
             let inputValue = input.value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
             let formattedValue = '';
-            let errorMessage = document.getElementById('error-message-phone');
+            let errorMessage = MyElement('error-message-phone');
             errorMessage.style.display = 'none';
 
             if (inputValue.length <= 7) {

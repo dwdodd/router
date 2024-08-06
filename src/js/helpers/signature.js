@@ -1,5 +1,5 @@
 const signature = () => {
-    const canvas = document.getElementById('signature-pad');
+    const canvas = MyElement('signature-pad');
     const ctx = canvas.getContext('2d');
     let isDrawing = false;
 
@@ -26,12 +26,12 @@ const signature = () => {
     canvas.addEventListener('mouseleave', stopDrawing);
 
     // Clear button
-    document.getElementById('clear-button').addEventListener('click', function () {
+    MyElement('clear-button').addEventListener('click', function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
 
     // Save button
-    document.getElementById('save-button').addEventListener('click', function () {
+    MyElement('save-button').addEventListener('click', function () {
         const dataURL = canvas.toDataURL('image/png');
         console.log(dataURL); // Esto imprime la URL de la imagen en la consola. Puedes usarla para guardar la imagen.
     });

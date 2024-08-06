@@ -6,8 +6,8 @@ const paginatorPageLink = async (e, path) => {
     let cols = '';
     let response = '';
     let page = e.page;
-    let content = document.getElementById('content');
-    let footer = document.getElementById('footer');
+    let content = MyElement('content');
+    let footer = MyElement('footer');
 
     const resource = `${path}?page=${page}`;
     const method = 'GET';

@@ -10,14 +10,14 @@ const login = () => {
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="user">
                         Usuario
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user" type="text" placeholder="Usuario" />
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user" type="text" autocomplete="current-user" placeholder="Usuario" />
                     <div class="mt-1 mb-0 italic text-red-500 text-sm" id="user-error-message"></div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pasw">
                         Contraseña
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pasw" type="password" placeholder="********" />
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pasw" type="password" autocomplete="current-password" placeholder="********" />
                     <div class="mt-1 mb-0 italic text-red-500 text-sm" id="pasw-error-message"></div>
                 </div>
                 <div class="flex items-center justify-between">
@@ -25,7 +25,7 @@ const login = () => {
                         Acceder
                     </button>
                     
-                    <a class="inline-block align-baseline font-bold text-sm text-sky-900 hover:text-sky-700 ml-2" href="#">
+                    <a class="inline-block align-baseline font-bold text-sm text-sky-900 hover:text-sky-700 ml-2" href="#" id="recover-password">
                         Olvido su contraseña?
                     </a>
                 </div>

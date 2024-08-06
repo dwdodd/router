@@ -4,8 +4,8 @@ import getUsers from "./getUsers.js";
 const userList = async () => {
     let data = '';
     let response = '';
-    let content = document.getElementById('content');
-    let footer = document.getElementById('footer');
+    let content = MyElement('content');
+    let footer = MyElement('footer');
 
     content.innerHTML = `<tr><td class="text-center text-xl p-1" colspan="6">Cargando información, por favor espere...</td></tr>`;
 
