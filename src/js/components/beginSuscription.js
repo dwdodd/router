@@ -44,7 +44,7 @@ const beginSuscription = async (key, e) => {
             break;
         
         case 'col-index-rc':
-            orderColumnSelected(e);
+            orderColumnSelected(e.colIndex);
             break;
 
         case 'clear-search-rc':

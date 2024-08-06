@@ -15,9 +15,9 @@ const onClickEventsListeners = () => {
         if (matchReturn('#dash-profiles'))    beginSuscription('profiles-rc');
         if (matchReturn('#dash-roles'))       beginSuscription('roles-rc');
         if (matchReturn('#dash-permissions')) beginSuscription('permissions-rc');
-        if (matchReturn('.page-link'))        beginSuscription('page-link-rc');
+        if (matchReturn('.page-link'))        beginSuscription('page-link-rc', e.target.dataset);
         if (matchReturn('#btn-search'))       beginSuscription('page-link-search-rc');
-        if (matchReturn('.col-index'))        beginSuscription('col-index-rc', e.target.dataset.colIndex);
+        if (matchReturn('.col-index'))        beginSuscription('col-index-rc', e.target.dataset);
         if (matchReturn('#clear-search'))     beginSuscription('clear-search-rc');
         if (matchReturn('#out'))              beginSuscription('out-rc');
 

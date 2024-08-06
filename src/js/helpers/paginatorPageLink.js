@@ -5,7 +5,7 @@ import fechtService from "./fetchService.js";
 const paginatorPageLink = async (e, path) => {
     let cols = '';
     let response = '';
-    let page = e.target.dataset.page;
+    let page = e.page;
     let content = document.getElementById('content');
     let footer = document.getElementById('footer');
 
