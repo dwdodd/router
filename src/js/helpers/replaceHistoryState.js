@@ -1,7 +1,7 @@
 import { localeStorageRemove } from "./getLocaleStorage.js";
 
 const replaceHistoryState = (state) =>{
-    history.replaceState({ state }, state, '/' + state);
+    history.replaceState({}, '', '/' + state);
 
     if (state != 'add-user') { localeStorageRemove('profiles'); localeStorageRemove('profiles-temp'); }
 
